@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CloverReport.cs" />
+    <Compile Include="CoberturaReport.cs" />
     <Compile Include="HtmlReport.cs" />
     <Compile Include="MikeParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

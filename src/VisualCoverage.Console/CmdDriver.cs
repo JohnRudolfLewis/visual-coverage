@@ -56,6 +56,9 @@ namespace VisualCoverage.Console
             [Option(null, "clover", Required = false, HelpText = "Clover report output file (*.xml).")]
             public string CloverOutput { get; set; }
 
+            [Option(null, "cobertura", Required = false, HelpText = "Cobertura report output file (*.xml).")]
+            public string CoberturaOutput { get; set; }
+
             [OptionArray("i", "input", Required = true, HelpText = "Visual studio coverage (*.coverage) input file. Can be specified multiple times.")]
             public string[] InputFiles
             {
@@ -171,6 +174,15 @@ namespace VisualCoverage.Console
                 {
                     outfile.Write(htmlreport.Execute(pe));
                 }
+            }
+            // Generate cobertura report
+            if (options.CoberturaOutput != null)
+            {
+              CoberturaReport coberturareport = new CoberturaReport();
+              using (StreamWriter outfile = new StreamWriter(options.CoberturaOutput))
+              {
+                outfile.Write(coberturareport.Execute(pe));
+              }
             }
         }
     }
